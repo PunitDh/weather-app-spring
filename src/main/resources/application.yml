@@ -1,0 +1,6 @@
+openweathermap:
+  base-url: https://api.openweathermap.org
+  endpoints:
+    geolocation: /geo/1.0/direct
+    weather: /data/3.0/onecall
+  api-key: ${OPEN_WEATHER_MAP_API_KEY}
