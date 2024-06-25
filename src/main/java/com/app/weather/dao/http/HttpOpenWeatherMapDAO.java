@@ -29,10 +29,10 @@ public class HttpOpenWeatherMapDAO implements OpenWeatherMapDAO {
 
     @Override
     @Retryable(backoff = @Backoff(delay = 2000))
-    public List<Geolocation> getGeolocation(String city) {
+    public List<Geolocation> getGeolocation(String location) {
         String url = getUriBuilder()
                 .path(openWeatherMapConfig.getEndpoints().getGeolocation())
-                .queryParam("q", city)
+                .queryParam("q", location)
                 .build()
                 .toUriString();
 
