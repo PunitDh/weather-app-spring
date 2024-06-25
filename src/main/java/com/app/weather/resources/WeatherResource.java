@@ -1,16 +1,11 @@
 package com.app.weather.resources;
 
-import com.app.weather.domain.Geolocation;
+import com.app.weather.domain.Weather;
 import com.app.weather.service.WeatherService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/weather")
 public class WeatherResource {
 
     private final WeatherService weatherService;
@@ -19,14 +14,8 @@ public class WeatherResource {
         this.weatherService = weatherService;
     }
 
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello world";
-    }
-
-    @GetMapping("/geolocation/{city}")
-    public List<Geolocation> getGeoLocation(@PathVariable String city) {
-        return weatherService.getGeolocation(city);
+    @GetMapping
+    public Weather getGeoLocation(@RequestParam String location) {
+        return weatherService.getWeather(location);
     }
 }

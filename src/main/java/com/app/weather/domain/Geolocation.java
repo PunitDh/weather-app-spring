@@ -8,9 +8,6 @@ import java.math.BigDecimal;
 @JsonSerialize
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Geolocation {
-    public String name;
     public BigDecimal lat;
     public BigDecimal lon;
-    public String country;
-    public String state;
 }

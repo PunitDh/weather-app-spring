@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
@@ -40,7 +41,7 @@ public class HttpOpenWeatherMapDAO implements OpenWeatherMapDAO {
 
     @Override
     @Retryable(backoff = @Backoff(delay = 2000))
-    public Weather getWeather(double latitude, double longitude) {
+    public Weather getWeather(BigDecimal latitude, BigDecimal longitude) {
         String url = getUriBuilder()
                 .path(openWeatherMapConfig.getEndpoints().getWeather())
                 .queryParam("lat", latitude)

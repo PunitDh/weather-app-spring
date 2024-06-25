@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/healthcheck")
 public class HealthResource {
     private final HealthIndicator healthIndicator;
 
@@ -16,7 +18,7 @@ public class HealthResource {
         this.healthIndicator = healthIndicator;
     }
 
-    @GetMapping("/healthcheck")
+    @GetMapping
     public Health getHealthCheck() {
         return healthIndicator.health();
     }
