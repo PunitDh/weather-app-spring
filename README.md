@@ -28,10 +28,18 @@ This is a Spring Boot application that fetches weather data from the [OpenWeathe
     cd weather-app-spring
     ```
 
-3. **Build the project:**
+2. **Build the project:**
 
     ```bash
     mvn clean install
+    ```
+
+3. **Set environment variable:**
+
+    You will need to get a working API key from [OpenWeatherMap](https://openweathermap.org/).
+    Before running the application, run this command in the terminal.
+    ```shell
+    export OPEN_WEATHER_MAP_API_KEY=Your_API_KEY_Here
     ```
 
 4. **Run the application:**
